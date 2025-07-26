@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scarlet=1.0"/>
+    <title>Study Material Share Hub</title>
+    <link rel="stylesheet" href="style.css" />
+      </head>
+  <body>
+    <header>
+      <h1> Study Material Share Hub</h1>
+      <nav>
+        <a href="#subjects">Subjects</a>
+        <a href="#materials">Materials</a>
+        <a href="contact">Contact</a>
+        <a href="dashboard">Dashboard</a>
+      </nav>
+    </header>
 
+    <section id="hero">
+      <h2> Subjects</h2>
+      <div class="subject-grid">
+        <div class="subject-card" onclick="filterMaterial('Physics')">Physics</div>
+        <div class="subject-card" onclick="filterMaterial('English')">English</div>
+        <div class="subject-card" onclick="filterMaterial('Maths')">Mathematics</div>
+        <div class="subject-card" onclick="filterMaterial('CS')">C-Programming</div>
+        <div class="subject-card" onclick="filterMaterial('C++')">C++ Language</div>
+        <div class="subject-card" onclick="filterMaterial('DSA')">Data Structure</div>
+        <div class="subject-card" onclick="filterMaterial('Python')">Python Language</div>
+        <div class="subject-card" onclick="filterMaterial('Java')">Java Language</div>
+      </div>
+    </section>
+
+    <section id="materials">
+      <h2> Study Materials</h2>
+      <ul id="material-list">
+        <li data-subject="Physics"><a href="#"> Physics Notes - PDF</a></li>
+        <li data-subject="English"><a href="#"> English Notes - PDF</a></li>
+        <li data-subject="Maths"><a href="#"> Matheematics Notes - PDF</a></li>
+        <li data-subject="CS"><a href="#"> C-Programming Notes - PDF</a></li>
+        <li data-subject="C++"><a href="#"> C++ Language Notes - PDF</a></li>
+        <li data-subject="DSA"><a href="#"> Data Structure Notes - PDF</a></li>
+        <li data-subject="Python"><a href="#"> Pyhton Language Notes - PDF</a></li>
+        <li data-subject="Java"><a href="#"> Java Langugae Notes - PDF</a></li>
+      </ul>
+      <p id="no-materials" style="display:none; color:red;">No materials found for this subject.</p>
+    </section>
+
+    <section id="contact">
+      <h2> Contact Us</h2>
+      <form id="cotact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <footer>
+      <p> 2025 Study Material Share Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+      function filterMaterial(subject){
+        const material = document.querySelectorAll('#materials-list li');
+        const nomaterial = document.getElementById('no-material');
+        let found = false;
+
+        material.forEach(item => {
+          if (item.dataset.subject====subject){
+            item.style.display = 'list-item';
+            found = true;
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        noMaterial.style.display = found ? 'none' : 'block';
+      }
+
+      document.getElementById("contact-form").addEventListener("submit", function (e){
+        e.preventDefault();
+        alert("Thank you! Your message has been sent.");
+        this.reset();
+      });
+    </script>
+  </body>
